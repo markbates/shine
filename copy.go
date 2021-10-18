@@ -5,7 +5,8 @@ import (
 	"reflect"
 )
 
-// CopySlice a slice to a slice
+// CopySlice a slice to a slice.
+// dest must be a pointer to a slice. Ex. *[]string
 func CopySlice(dest interface{}, src interface{}) error {
 	if src == nil {
 		return fmt.Errorf("source can not be nil")

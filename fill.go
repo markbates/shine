@@ -6,6 +6,7 @@ import (
 )
 
 // FillSlice fills the destination slice with the src interfaces
+// dest must be a pointer to a slice. Ex. *[]string
 func FillSlice(dest interface{}, src ...interface{}) error {
 
 	if dest == nil {
