@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/stretchr/testify/require"
 )
 
 type Beatle struct {
@@ -31,9 +31,9 @@ func Equal(t testing.TB, exp interface{}, act interface{}) {
 		av = av.Elem()
 	}
 
+	r := require.New(t)
+
 	es := fmt.Sprint(ev.Interface())
 	as := fmt.Sprint(av.Interface())
-	if !cmp.Equal(es, as) {
-		t.Fatalf("expected %v, got %v", es, as)
-	}
+	r.Equal(es, as)
 }
